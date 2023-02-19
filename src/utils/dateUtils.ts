@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import { DateFormat } from "../models/models";
+import relativeTime from "dayjs/plugin/relativeTime";
 
-export const formatNumber = (value: number) =>
-  new Intl.NumberFormat().format(value);
+dayjs.extend(relativeTime);
 
 const dateFormatMap: Record<DateFormat, string> = {
   date: "YYYY-MM-DD",
@@ -11,3 +11,7 @@ const dateFormatMap: Record<DateFormat, string> = {
 
 export const formatDate = (value: number, format: DateFormat = "datetime") =>
   dayjs.unix(value).format(dateFormatMap[format]);
+
+export const timeToNow = (value: number) => dayjs.unix(value).toNow(true);
+
+export const timeFromNow = (value: number) => dayjs.unix(value).fromNow();

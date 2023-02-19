@@ -1,0 +1,25 @@
+.badgeCount {
+  font-size: 1.75rem;
+}
+
+.star {
+  font-size: 3rem;
+
+  &.gold {
+    color: gold;
+  }
+
+  &.silver {
+    color: silver;
+  }
+
+  &.bronze {
+    color: #cd7f32;
+  }
+}
+
+.badgeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

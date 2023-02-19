@@ -3,11 +3,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { fetchSearchResults } from "../../app/api";
 import useApiRequest from "../../hooks/useApi";
 import SearchBar from "./components/SearchBar";
-import SearchResults from "./components/SearchResults";
 import SearchResultsInfo from "./components/SearchResultsInfo";
 import SearchResultsLoading from "./components/SearchResultsLoading";
 import { SearchFormValues } from "./models";
 import styles from "./Search.module.scss";
+import SearchResults from "./components/SearchResults";
 
 const { Title } = Typography;
 

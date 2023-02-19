@@ -1,4 +1,4 @@
-import { SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { Col, Layout, Menu, Row } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { ItemType } from "antd/es/menu/hooks/useItems";

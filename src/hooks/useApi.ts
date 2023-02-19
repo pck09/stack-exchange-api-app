@@ -1,5 +1,5 @@
 import { notification } from "antd";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ErrorData } from "../models/models";
 
 interface UseApiParams<RequestDataType, ResponseDataType> {
@@ -9,7 +9,7 @@ interface UseApiParams<RequestDataType, ResponseDataType> {
 const useApiRequest = <RequestDataType, ResponseDataType>({
   request,
 }: UseApiParams<RequestDataType, ResponseDataType>) => {
-  const [isLoading, setIsLoading] = useState<boolean>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<ErrorData>();
   const [data, setData] = useState<ResponseDataType>();
 
@@ -27,13 +27,18 @@ const useApiRequest = <RequestDataType, ResponseDataType>({
         const responseData: ErrorData = await response.json();
 
         setError(responseData);
-        notification.error({ message: responseData.error_message });
       } finally {
         setIsLoading(false);
       }
     },
     [request]
   );
+
+  useEffect(() => {
+    if (error) {
+      notification.error({ message: error.error_message });
+    }
+  }, [error]);
 
   return {
     isLoading,

@@ -2,7 +2,7 @@ export interface SearchFormValues {
   keyword: string;
 }
 
-export interface SearchResultItemOwner {
+export interface SearchResultOwner {
   account_id: number;
   display_name: string;
   link: string;
@@ -12,14 +12,14 @@ export interface SearchResultItemOwner {
   user_type: string;
 }
 
-export interface SearchResultItem {
+export interface SearchResult {
   answer_count: number;
   content_license: string;
   creation_date: number;
   is_answered: boolean;
   last_activity_date: number;
   link: string;
-  owner: SearchResultItemOwner;
+  owner: SearchResultOwner;
   question_id: number;
   score: number;
   tags: string[];
@@ -29,9 +29,9 @@ export interface SearchResultItem {
   body: string;
 }
 
-export interface SearchResults {
+export interface SearchResultsResponse {
   has_more: boolean;
-  items: SearchResultItem[];
+  items: SearchResult[];
   quota_max: number;
   quota_remaining: number;
 }

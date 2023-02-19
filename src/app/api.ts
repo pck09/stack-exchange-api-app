@@ -1,4 +1,5 @@
-import { SearchResults } from "../features/search/models";
+import { Profile, ProfileResponse } from "../features/profile/models";
+import { SearchResultsResponse } from "../features/search/models";
 
 const request = (url: string) =>
   fetch(url).then((response) => {
@@ -9,12 +10,14 @@ const request = (url: string) =>
     throw response;
   });
 
-export const fetchSearchResults = (keyword: string): Promise<SearchResults> =>
+export const fetchSearchResults = (
+  keyword: string
+): Promise<SearchResultsResponse> =>
   request(
     `https://api.stackexchange.com/2.3/search?site=stackoverflow&order=desc&sort=activity&filter=!6Wfm_gRpwM_nz&intitle=${keyword}`
   );
 
-export const fetchUser = (id: string): Promise<SearchResults> =>
+export const fetchUser = (id: string): Promise<Profile> =>
   request(
     `https://api.stackexchange.com/2.3/users/${id}?site=stackoverflow&order=desc&sort=reputation&filter=default`
-  );
+  ).then((reponse: ProfileResponse) => reponse.items?.[0]);

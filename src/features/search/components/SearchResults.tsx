@@ -1,10 +1,10 @@
 import { List } from "antd";
 import React from "react";
-import { SearchResultItem } from "../models";
+import { SearchResult } from "../models";
 import SearchResultsRow from "./SearchResultsRow";
 
 interface SearchResultsProps {
-  results: SearchResultItem[];
+  results: SearchResult[];
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {

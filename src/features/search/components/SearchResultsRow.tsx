@@ -1,12 +1,13 @@
 import { Avatar, Card, Col, List, Row, Space, Tag, Typography } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
-import { formatDate, formatNumber } from "../../../utils/utils";
-import { SearchResultItem } from "../models";
+import { formatDate } from "../../../utils/dateUtils";
+import { formatNumber } from "../../../utils/numberUtils";
+import { SearchResult } from "../models";
 import styles from "./SearchResultsRow.module.scss";
 
 interface SearchResultsRowProps {
-  data: SearchResultItem;
+  data: SearchResult;
 }
 
 const SearchResultsRow: React.FC<SearchResultsRowProps> = ({ data }) => {
@@ -35,7 +36,7 @@ const SearchResultsRow: React.FC<SearchResultsRowProps> = ({ data }) => {
               </Typography.Paragraph>
               <Space size={[0, 8]} wrap>
                 {data.tags.map((tag) => (
-                  <Tag>{tag}</Tag>
+                  <Tag key={tag}>{tag}</Tag>
                 ))}
               </Space>
               <Row justify="end" align="middle">

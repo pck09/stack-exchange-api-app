@@ -3,7 +3,7 @@ import React from "react";
 
 const listData = [...new Array(6)].map((item, index) => index);
 
-const SearchResultsLoading = () => {
+const SearchResultsLoading: React.FC = () => {
   return (
     <List
       itemLayout="vertical"
