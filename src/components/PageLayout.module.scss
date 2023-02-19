@@ -1,0 +1,13 @@
+.layout {
+  min-height: 100vh;
+}
+
+.content {
+  padding: 2rem;
+}
+
+.header {
+  &:global(.ant-layout-header) {
+    padding-inline: 2rem;
+  }
+}
